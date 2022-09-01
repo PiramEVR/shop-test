@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
+import {logInTC} from "./state/reducers/authReducer";
+import {useAppDispatch, useAppSelector} from "./state/store";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [boolean, setBoolean] = useState(true)
+    const dispatch = useAppDispatch()
+    const users = useAppSelector((state) => state.auth.users)
+    console.log(users)
+    useEffect(() => {
+        dispatch(logInTC())
+    }, [boolean])
+    return (
+        <div className="App">
+            <ul>
+                {users.map((user) => <li key={user.email}>{user.name}</li>)}
+            </ul>
+            <button onClick={() => {
+                setBoolean(!boolean)
+            }}>+++
+            </button>
+        </div>
+    );
 }
 
 export default App;
