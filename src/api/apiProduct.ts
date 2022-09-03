@@ -3,9 +3,9 @@ import {AxiosResponse} from "axios";
 
 
 export const productsApi = {
-    products() {
-        return instance.get<any, AxiosResponse<ProductsType>>('products')
-    },
+    // products() {
+    //     return instance.get<any, AxiosResponse<ProductsType>>('products')
+    // },
     // addProducts() {
     //     return instance.post('products/add')
     // },

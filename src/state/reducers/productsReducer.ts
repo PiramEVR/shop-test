@@ -31,8 +31,8 @@ const setProducts = (products: ProductsType[]) => {
 export const getProducts = (): AppThunk =>
     async dispatch => {
         try {
-            const res = await productsApi.products();
-            console.log(res)
+            // const res = await productsApi.products();
+            // console.log(res)
             // dispatch(setProducts(res.data));
         } catch (e: any) {
             console.log(e)
