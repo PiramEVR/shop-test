@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import {logInTC} from "./state/reducers/authReducer";
 import {useAppDispatch, useAppSelector} from "./state/store";
+import {getProducts} from "./state/reducers/productsReducer";
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     console.log(users)
     useEffect(() => {
         dispatch(logInTC())
+        dispatch(getProducts())
     }, [boolean])
     return (
         <div className="App">

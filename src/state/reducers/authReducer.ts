@@ -1,5 +1,5 @@
 import {AppThunk} from '../store';
-import {auth, UsersType} from "../../api/apiAuth";
+import {authApi, UsersType} from "../../api/apiAuth";
 
 enum EnumAuthReducerActionType {
     isMe = 'AUTH/IS-ME',
@@ -31,7 +31,7 @@ const isMeAC = (users: UsersType[]) => {
 export const logInTC = (): AppThunk =>
     async dispatch => {
         try {
-            const res = await auth.login();
+            const res = await authApi.login();
             dispatch(isMeAC(res.data));
         } catch (e: any) {
             console.log(e)
